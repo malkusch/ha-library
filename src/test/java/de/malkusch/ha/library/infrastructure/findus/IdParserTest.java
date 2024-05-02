@@ -16,7 +16,12 @@ public class IdParserTest {
             "javascript:zeige_details('hilpoltstein_0033369001')", //
             "JavaScript:zeige_details(hilpoltstein_0033369001)", //
             "javascript:zeige_details(\"hilpoltstein_0033369001\")", //
-            "javascript:zeige_details('hilpoltstein_0033369001')", //
+            
+            "JavaScript:Zeige_Details('hilpoltstein_0033369001')", //
+            
+            "javascript:zeige_details('hilpoltstein_0033369001');", //
+            "javascript:zeige_details('hilpoltstein_0033369001') ;", //
+            
             " javascript: zeige_details ( 'hilpoltstein_0033369001' ) ", //
             " javascript: zeige_details ( \"hilpoltstein_0033369001\" ) ", //
             " javascript: zeige_details ( hilpoltstein_0033369001 ) ", //
