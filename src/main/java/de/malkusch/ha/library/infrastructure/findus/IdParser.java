@@ -10,7 +10,9 @@ import de.malkusch.ha.library.model.MediumId;
 
 final class IdParser {
 
-    private static final Pattern ID = compile("javascript:zeige_details\\(['\"](\\S+)['\"]\\)", CASE_INSENSITIVE);
+    private static final Pattern ID = compile( //
+            "javascript:\\s*zeige_details\\s*\\(\\s*['\"]?([^\\s'\"]+)['\"]?\\s*\\)", //
+            CASE_INSENSITIVE);
 
     static MediumId parseId(String href) {
         requireNonNull(href);

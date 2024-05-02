@@ -14,8 +14,12 @@ public class IdParserTest {
     @ParameterizedTest
     @ValueSource(strings = { //
             "javascript:zeige_details('hilpoltstein_0033369001')", //
-            "JavaScript:zeige_details('hilpoltstein_0033369001')", //
+            "JavaScript:zeige_details(hilpoltstein_0033369001)", //
             "javascript:zeige_details(\"hilpoltstein_0033369001\")", //
+            "javascript:zeige_details('hilpoltstein_0033369001')", //
+            " javascript: zeige_details ( 'hilpoltstein_0033369001' ) ", //
+            " javascript: zeige_details ( \"hilpoltstein_0033369001\" ) ", //
+            " javascript: zeige_details ( hilpoltstein_0033369001 ) ", //
     })
     public void parseIdShouldParse(String href) {
         var id = parseId(href);
@@ -30,7 +34,7 @@ public class IdParserTest {
             "javascript:zeige_details()", //
             "javascript:invalid('hilpoltstein_0033369001')", //
     })
-    public void parseIdShouldFail(String href) throws Exception {
+    public void parseIdShouldFail(String href) {
         assertThrows(IllegalArgumentException.class, () -> parseId(href));
     }
 }
