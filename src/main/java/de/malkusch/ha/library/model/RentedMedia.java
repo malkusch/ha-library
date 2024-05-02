@@ -19,16 +19,15 @@ public record RentedMedia(List<RentedMedium> media) {
         List<RentedMedium> removed = new ArrayList<>(media);
 
         for (var other : otherMedia.media) {
-            var old = find(other.medium());
-            if (old.isEmpty()) {
+            var optionalOld = find(other.medium());
+            if (optionalOld.isEmpty()) {
                 added.add(other);
 
             } else {
-                if (!old.get().isChanged(other)) {
+                var old = optionalOld.get();
+                remove(removed, old);
+                if (old.isChanged(other)) {
                     changed.add(other);
-
-                } else {
-                    remove(removed, other);
                 }
             }
         }

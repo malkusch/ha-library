@@ -35,12 +35,12 @@ public class SyncFindusService {
         }
 
         for (var removed : diff.removed()) {
-            var event = new Returned();
+            var event = new Returned(removed.medium().id());
             events.publish(event);
         }
 
         for (var changed : diff.changed()) {
-            var event = new Extended();
+            var event = new Extended(changed.medium().id(), changed.until());
             events.publish(event);
         }
     }
