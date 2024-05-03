@@ -14,7 +14,7 @@ final class NullCalendar implements Calendar {
     }
 
     @Override
-    public void delete(MediumId id) {
+    public void deleteUpcoming(MediumId id) {
         log.warn("Deleting {} from NullCalendar", id);
     }
 }

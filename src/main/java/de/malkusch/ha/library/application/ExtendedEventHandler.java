@@ -7,23 +7,23 @@ import org.springframework.stereotype.Service;
 
 import de.malkusch.ha.library.model.Calendar;
 import de.malkusch.ha.library.model.Entry;
-import de.malkusch.ha.library.model.Rented;
+import de.malkusch.ha.library.model.Extended;
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public final class RentedEventHandler {
+public final class ExtendedEventHandler {
 
     private final Calendar calendar;
 
     @EventListener
-    public void onRented(Rented event) throws IOException {
+    public void onExtended(Extended event) throws IOException {
         var entry = new Entry( //
-                event.id(), //
+                event.medium(), //
                 String.format("Büchereirückgabe: %s", event.title()), //
-                event.until());
+                event.extension());
 
-        calendar.deleteUpcoming(event.id());
+        calendar.deleteUpcoming(event.medium());
         calendar.add(entry);
     }
 }

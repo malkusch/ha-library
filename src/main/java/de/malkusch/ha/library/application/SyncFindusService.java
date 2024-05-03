@@ -40,7 +40,7 @@ public class SyncFindusService {
         }
 
         for (var changed : diff.changed()) {
-            var event = new Extended(changed.medium().id(), changed.until());
+            var event = new Extended(changed.medium().id(), changed.medium().title(), changed.until());
             events.publish(event);
         }
     }

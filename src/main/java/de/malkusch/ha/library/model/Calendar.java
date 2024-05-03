@@ -7,6 +7,6 @@ public interface Calendar {
 
     void add(Entry entry) throws IOException;
 
-    void delete(MediumId id) throws IOException;
+    void deleteUpcoming(MediumId id) throws IOException;
 
 }

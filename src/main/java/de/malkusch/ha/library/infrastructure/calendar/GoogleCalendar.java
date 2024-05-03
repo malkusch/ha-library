@@ -47,7 +47,7 @@ final class GoogleCalendar implements Calendar {
     }
 
     @Override
-    public void delete(MediumId id) throws IOException {
+    public void deleteUpcoming(MediumId id) throws IOException {
         var list = api.events().list(calendarId);
         list.setPrivateExtendedProperty(Arrays.asList("medium=" + id.toString()));
         list.setTimeMin(new DateTime(new Date()));

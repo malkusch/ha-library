@@ -4,6 +4,6 @@ import java.time.LocalDate;
 
 import de.malkusch.ha.library.infrastructure.event.Event;
 
-public record Extended(MediumId medium, LocalDate extension) implements Event {
+public record Extended(MediumId medium, String title, LocalDate extension) implements Event {
 
 }
