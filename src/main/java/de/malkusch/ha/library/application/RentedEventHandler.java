@@ -1,5 +1,7 @@
 package de.malkusch.ha.library.application;
 
+import java.io.IOException;
+
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +17,13 @@ public final class RentedEventHandler {
     private final Calendar calendar;
 
     @EventListener
-    public void onRented(Rented event) {
+    public void onRented(Rented event) throws IOException {
         var entry = new Entry( //
                 event.id(), //
                 String.format("Büchereirückgabe: %s", event.title()), //
                 event.until());
 
+        calendar.delete(event.id());
         calendar.add(entry);
     }
 }

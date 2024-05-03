@@ -1,2 +1,7 @@
 findus:
    customer: example
+google:
+   client-id: example
+   client-secret: example
+   calendar-name: example
+   location: Library, 475 Grand Concourse, Bronx, NY 10451, USA
